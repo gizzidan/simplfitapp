@@ -1,0 +1,4 @@
+#D2527F - default pink
+#52B3D9 - default blue
+#1E88E5 - SimplFit Blue
+#ff1654 - SimplFit Hot Pink
