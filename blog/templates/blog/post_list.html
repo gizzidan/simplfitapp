@@ -1,4 +1,6 @@
 {% extends 'landingpage/base.html' %}
+{% load staticfiles %}
+
 
 {% block content %}
   {% for post in posts %}
@@ -14,4 +16,4 @@
         </div>
       </div>
   {% endfor %}
-{% endblock %}
+{% endblock content %}
