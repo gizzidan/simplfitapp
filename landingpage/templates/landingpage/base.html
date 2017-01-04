@@ -9,25 +9,24 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="static/img/favicon.ico">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 
 
     <title>SimplFit</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="static/css/bootstrap.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
 
     <!-- Custom styles for this template -->
-    <link href="static/css/style.css" rel="stylesheet">
-    <link href="static/css/ionicons.min.css" rel="stylesheet">
+    {% block styles %}
+    {% endblock styles %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nivo-lightbox.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nivo-themes/default/default.css' %}">
 
-
-	<link rel="stylesheet" href="static/css/nivo-lightbox.css" type="text/css">
-	<link rel="stylesheet" href="static/css/nivo-themes/default/default.css" type="text/css">
 
   <style type="text/css">
   	#mc_embed_signup{background:none; clear:left;  }
@@ -92,13 +91,15 @@
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-  <script src="static/js/jquery.min.js"></script>
-  <script src="static/js/bootstrap.min.js"></script>
-  <script src="static/js/retina-1.1.0.js"></script>
-  <script src="static/js/classie.js"></script>
-  <script src="static/js/smoothscroll.js"></script>
-  <script src="static/js/main.js"></script>
-  <script src="static/js/nivo-lightbox.min.js"></script>
+
+  <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/retina-1.1.0.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/classie.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/smoothscroll.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/nivo-lightbox.min.js' %}"></script>
+
 
   <script>
   // Nivo Lightbox initialization

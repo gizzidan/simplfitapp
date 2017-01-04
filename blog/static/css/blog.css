@@ -1,16 +1,15 @@
 h1 a {
     color: #f7eedf;
-    font-family: 'Lobster';
+    font-family: 'Lato';
 }
 
+
 .page-header {
-    background-color: #e0252b;
-    margin-top: 0;
     padding: 20px 20px 20px 40px;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
-    color: #ffffff;
+    font-family: "Shadows Into Light", cursive;
     font-size: 36pt;
     text-decoration: none;
 }
@@ -20,7 +19,7 @@ h1 a {
 }
 
 h1, h2, h3, h4 {
-    font-family: 'Lobster', cursive;
+    font-family: 'Lato';
 }
 
 .date {
