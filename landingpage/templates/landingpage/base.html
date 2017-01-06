@@ -55,23 +55,15 @@
   <body data-spy="scroll" data-offset="0" data-target="#theMenu">
 
 	<!-- Menu -->
-	<nav class="menu" id="theMenu">
-		<div class="menu-wrap">
-			<h1 class="logo"><a href="base_landing.html#home">SimplFit</a></h1>
-			<i class="ion-android-close menu-close"></i>
-			<a href="#home" class="smoothScroll">Home</a>
-			<a href="#about" class="smoothScroll">About</a>
-			<a href="#screen" class="smoothScroll">FAQ</a>
-			<a href="#buy" class="smoothScroll">Work With Us</a>
-		</div>
-
-		<!-- Menu button -->
-		<div id="menuToggle"><i class="ion-grid"></i></div>
-	</nav>
+  
+{% block nav%}
+{% endblock nav%}
 
 {% block content %}
 {% endblock %}
-  <!--End mc_embed_signup-->
+
+
+<!-- FOOTER -->
 
     </div><!--/row -->
   </div><!--/container -->

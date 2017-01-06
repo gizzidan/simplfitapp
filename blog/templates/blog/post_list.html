@@ -3,13 +3,14 @@
 {% load static %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blogstyle.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Anton|Baloo+Chettan|Baloo+Thambi|Montserrat|Roboto+Slab|Rubik" rel="stylesheet">
 {% endblock styles %}
 
 {% block content %}
 
 <div>
-  <div class="jumbotron">
+  <div class="jumbotron", id="bloghead">
     <div class="container">
       <div class="row centered">
         <h1>SimplFit Blog</h1>
@@ -20,7 +21,7 @@
 
 
 <div class="container-fluid">
-  <div class="col-md-push-4 col-md-8">
+  <div class="col-md-push-2 col-md-8">
     {% for post in posts %}
         <div class="post">
           <div class="row">
@@ -30,7 +31,7 @@
             </div>
           </div>
           <div class="row">
-            <p>{{ post.text|linebreaksbr }}</p>
+            <p>{{ post.text|linebreaksbr|truncatewords:35 }}</p>
           </div>
         </div>
     {% endfor %}

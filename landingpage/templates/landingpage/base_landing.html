@@ -1,7 +1,24 @@
 {% extends 'landingpage/base.html' %}
 
+{% block nav %}
+<nav class="menu" id="theMenu">
+  <div class="menu-wrap">
+    <h1 class="logo"><a href="base_landing.html#home">SimplFit</a></h1>
+    <i class="ion-android-close menu-close"></i>
+    <a href="#home" class="smoothScroll">Home</a>
+    <a href="#about" class="smoothScroll">About</a>
+    <a href="#screen" class="smoothScroll">FAQ</a>
+    <a href="#buy" class="smoothScroll">Work With Us</a>
+  </div>
+
+<!-- Menu button -->
+  <div id="menuToggle"><i class="ion-grid"></i></div>
+</nav>
+{% endblock nav %}
+
+
 {% block content %}
-  <!-- ********** HEADER ********** -->
+<!-- ********** HEADER ********** -->
   <section id="home"></section>
   <div id="h">
     <div class="container">
@@ -13,7 +30,7 @@
 
         </div>
 
-        <!-- Begin MailChimp Signup Form -->
+<!-- Begin MailChimp Signup Form -->
 
 
           <div id="mc_embed_signup", class="g">
