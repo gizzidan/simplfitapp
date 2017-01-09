@@ -1,5 +1,7 @@
 from django.db import models
 from django.utils import timezone
+from django.template.defaultfilters import slugify
+
 
 class Category(models.Model):
     FITNESS = 'F'
@@ -23,18 +25,25 @@ class Category(models.Model):
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
-    slug = models.SlugField(editable=False, unique=True)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     modified_at = models.DateTimeField(auto_now=True, editable=False)
+    slug = models.SlugField(default='', editable=False )
+
 
     @models.permalink
     def get_absolute_url(self):
-        return ('article', (), {
-            'slug': self.slug,
-            'id': self.id,
-        })
+        kwargs = {'year': self.created_at.year,
+              'month': self.created_at.month,
+              'day': self.created_at.day,
+              'slug': self.slug,
+              'pk': self.pk}
+        return reverse('post_detail', kwargs=kwargs)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
     def publish(self):
         self.published_date = timezone.now()

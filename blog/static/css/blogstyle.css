@@ -1,0 +1,71 @@
+.post h1 a {
+  font-family: 'Baloo Thambi', cursive;
+  color: #2a2a2a;
+}
+
+.post h1 {
+  font-family: 'Baloo Thambi', cursive;
+  color: #2a2a2a;
+}
+
+.post-detail {
+  padding: 20px;
+}
+.post-detail h1 {
+  font-family: 'Baloo Thambi', cursive;
+  color: #383838;
+  font-size: 60px;
+  text-align: left;
+}
+
+.post-detail p {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-weight: 300;
+  color: #323232;
+  text-align: left;
+
+}
+
+#bloghead {
+  background-color: #fc814a;
+}
+
+#bloghead h1 {
+  font-family: 'Baloo Chettan', cursive;
+  letter-spacing: 2px;
+  color: white;
+
+}
+.page-header {
+    padding: 20px 20px 20px 40px;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    font-size: 36pt;
+    text-decoration: none;
+}
+
+.content {
+    margin-left: 40px;
+}
+
+
+.date {
+    color: #828282;
+    font-size: 15px;
+}
+
+.save {
+    float: right;
+}
+
+.post-form textarea, .post-form input {
+    width: 100%;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
+}
