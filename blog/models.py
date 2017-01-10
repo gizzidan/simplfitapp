@@ -29,21 +29,14 @@ class Post(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     modified_at = models.DateTimeField(auto_now=True, editable=False)
-    slug = models.SlugField(default='', editable=False )
-
+    slug = models.SlugField(default='', editable=False, unique=True, max_length=140)
 
     @models.permalink
     def get_absolute_url(self):
-        kwargs = {'year': self.created_at.year,
-              'month': self.created_at.month,
-              'day': self.created_at.day,
-              'slug': self.slug,
-              'pk': self.pk}
-        return reverse('post_detail', kwargs=kwargs)
-
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
-        super().save(*args, **kwargs)
+        return ('post', (), {
+            'slug': self.slug,
+            'pk': self.pk,
+        })
 
     def publish(self):
         self.published_date = timezone.now()
@@ -51,5 +44,20 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def _get_unique_slug(self):
+        slug = slugify(self.title)
+        unique_slug = slug
+        num = 1
+
+        while Post.objects.filter(slug=unique_slug).exists():
+            unique_slug = '{}-{}'.format(slug, num)
+            num += 1
+        return unique_slug
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = self._get_unique_slug()
+        super().save()
 
 # Create your models here.
