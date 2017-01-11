@@ -1,10 +1,18 @@
-from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
-from .models import Post
+from .models import Post, Category
 from .forms import PostForm
 from django.shortcuts import redirect
 
+def category_detail( request, slug ):
+    category = get_object_or_404( Category, slug= slug )
+
+    context = {
+        'category': category,
+        'posts': category.post_set.all()
+    }
+
+    return render( request, 'blog/category_detail.html', context )
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')

@@ -2,30 +2,27 @@ from django.db import models
 from django.utils import timezone
 from django.template.defaultfilters import slugify
 
-
 class Category(models.Model):
-    FITNESS = 'F'
-    NUTRITION = 'N'
-    LIFESTYLE = 'L'
-    PRODUCTIVITY = 'P'
-    ENTREPRENEURSHIP = 'E'
-    CATEGORY_CHOICES = (
-        (FITNESS, 'Fitness'),
-        (NUTRITION, 'Nutrition'),
-        (LIFESTYLE, 'Lifestyle'),
-        (PRODUCTIVITY, 'Productivity'),
-        (ENTREPRENEURSHIP, 'Entrepreneurship'),
-    )
+    name = models.CharField(max_length=255, blank=False, default='')
+    slug = models.SlugField(max_length=100, default='')
 
-    name = models.CharField(choices=CATEGORY_CHOICES, blank=False, max_length=100)
+
+    class Meta:
+        verbose_name = "Category"
+        verbose_name_plural = "Categories"
+        ordering = ['name']
 
     def __str__(self):
+        return self.name
+
+    def __unicode__(self):
         return self.name
 
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
     text = models.TextField()
+    categories = models.ManyToManyField(Category )
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     modified_at = models.DateTimeField(auto_now=True, editable=False)
@@ -33,7 +30,7 @@ class Post(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('post', (), {
+        return ('article', (), {
             'slug': self.slug,
             'pk': self.pk,
         })

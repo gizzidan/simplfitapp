@@ -1,0 +1,21 @@
+{% extends 'landingpage/base.html' %}
+
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/blogcss.css' %}">
+
+{% endblock styles %}
+
+{% block content %}
+    <h1>{{ category.name }}</h1>
+    {% if posts %}
+        <ul>
+            {% for post in posts %}
+                <li><a href="{% url 'post_detail' slug=post.slug pk=post.pk %}">{{ post.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No posts yet.</p>
+    {% endif %}
+{% endblock %}

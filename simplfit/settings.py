@@ -79,7 +79,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'simplfitfinal',
+        'NAME': 'simplfitnew3',
         'USER': 'dan_gizzi',
         'PASSWORD': '',
         'HOST': 'localhost',
@@ -125,3 +125,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+import os.path
+SITE_MEDIA_ROOT = os.path.join(
+    os.path.dirname(__file__), 'simplfit2/', 'static/', 'site_media' #this should be the correct path instead
+)
