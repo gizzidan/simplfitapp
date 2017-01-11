@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Thambi|Droid+Sans:400,700|Kavoon|Lato:300,300i,400,400i,700,700i|Merriweather+Sans:300,300i,400,400i,700,700i|Montserrat|Roboto:300,300i,400,400i,500,500i,700,700i|Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i|Space+Mono:400,400i,700,700i|Work+Sans:100,200,300,400,500,600,700');
+
+@font-face {
+  font-family: 'Moon';
+  src: url('Moon-Light.otf');
+}
+
+@font-face {
+  font-family: 'Moon';
+  src: url('Moon-Bold.otf');
+  font-weight: bold;
+}
+
+.post h1 a {
+  font-family: 'Baloo Thambi', cursive;
+  color: #2a2a2a;
+}
+
+.post h1 {
+  font-family: 'Baloo Thambi', cursive;
+  color: #2a2a2a;
+}
+
+.post p {
+  font-family: 'Baloo Thambi', cursive;
+}
+
+.post-detail {
+  padding: 50px;
+}
+
+
+.post-detail h1 {
+  font-family: 'Moon', sans-serif;
+  color: #383838;
+  font-size: 60px;
+  text-align: left;
+  padding-bottom: 10px;
+}
+
+.post-detail p {
+  font-family: 'Kayak Sans', sans-serif;
+  font-weight: 200;
+  font-size: 19px;
+  color: #404040;
+  text-align: left;
+  line-height: 175%;
+  letter-spacing: 125%;
+
+}
+
+.blog-post {
+  background-color: white;
+}
+#bloghead {
+  background-color: #fc814a;
+}
+
+#bloghead h1 {
+  font-family: 'Baloo Thambi', cursive;
+  letter-spacing: 2px;
+  color: white;
+
+}
+.page-header {
+    padding: 20px 20px 20px 40px;
+}
+
+
+.content {
+    margin-left: 40px;
+}
+
+
+.date {
+    color: #828282;
+    font-size: 15px;
+    padding-bottom: 30px;
+}
+
+.save {
+    float: right;
+}
+
+.post-form textarea, .post-form input {
+    width: 100%;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
+}

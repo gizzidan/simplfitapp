@@ -3,8 +3,7 @@
 {% load static %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{% static 'css/blogstyle.css' %}">
-    <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi|Lato:300,300i,400,400i,700,700i|Merriweather+Sans:300,300i,400,400i,700,700i|Montserrat|Open+Sans:300i,400,400i,600,600i,700,700i|Roboto+Slab:300,400,700|Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/blogcss.css' %}">
 
 {% endblock styles %}
 
@@ -12,18 +11,21 @@
 
 <div class="post-detail">
   <div class="container">
-    {% if post.published_date %}
-    <div class="date">
-      {{ post.published_date }}
-      {% endif %} by
-      {% if post.author %}
-      {{ post.author }}
-    {% endif %}
-    </div>
     <div class="row">
-      <div class="col-xs-8 col-xs-offset-2">
+      <div class="col-xs-10 col-xs-offset-1">
         <h1>{{ post.title }}</h1>
-        <p>{{ post.text|linebreaksbr }}</p>
+        {% if post.published_date %}
+        <div class="date">
+          {{ post.published_date }}
+          {% endif %} by
+          {% if post.author %}
+          {{ post.author }}
+        {% endif %}
+        </div>
+
+            <p id="post-detail-text">{{ post.text|linebreaksbr }}</p>
+        
+
       </div>
 
     </div>
