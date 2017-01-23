@@ -6,7 +6,7 @@ module.exports = {
   context: __dirname,
   entry: {
       // Add as many entry points as you have container-react-components here
-      App1: './reactjs/App1',
+      App1: '.assets/js/reactjs/App1',
       vendors: ['react'],
     },
     output: {
@@ -14,6 +14,11 @@ module.exports = {
     filename: '[name]-[hash].js',
   },
   plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+          compress: {
+              warnings: false
+          }
+      }),
       //tells webpack where to store data about your bundles.
       new BundleTracker({filename: './webpack-stats.json'}),
       new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
