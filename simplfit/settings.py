@@ -79,10 +79,8 @@ STATICFILES_DIRS = (
     #This lets Django's collectstatic store our bundles
     os.path.join(BASE_DIR, 'assets'),
     os.path.join(BASE_DIR, 'reactjs'),
-    os.path.join(BASE_DIR, 'blog/static/css'),
-    os.path.join(BASE_DIR, 'landingpage/static/css'),
-    os.path.join(BASE_DIR, 'blog/static/js'),
-    os.path.join(BASE_DIR, 'landingpage/static/js'),
+    os.path.join(BASE_DIR, '/static/css'),
+    os.path.join(BASE_DIR, '/static/js'),
 
 )
 
