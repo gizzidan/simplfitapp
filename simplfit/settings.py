@@ -154,6 +154,9 @@ USE_TZ = True
 import dj_database_url
 DATABASES['default'] = dj_database_url.config()
 DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
+DATABASES['default']['NAME'] = 'simplfitnew3'
+DATABASES['default']['USER'] = 'dan_gizzi'
+
 
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
