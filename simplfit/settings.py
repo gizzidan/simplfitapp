@@ -150,10 +150,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 
-import os.path
-SITE_MEDIA_ROOT = os.path.join(
-    os.path.dirname(__file__), 'simplfit2/', 'static/', 'site_media' #this should be the correct path instead
-)
 
 import dj_database_url
 DATABASES['default'] = dj_database_url.config()
