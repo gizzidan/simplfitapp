@@ -6,7 +6,7 @@ module.exports = {
   context: __dirname,
   entry: {
       // Add as many entry points as you have container-react-components here
-      App1: '.assets/js/reactjs/App1',
+      App1: './reactjs/App1',
       vendors: ['react'],
     },
     output: {
