@@ -71,6 +71,9 @@ TEMPLATES = [
         },
     },
 ]
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    )
 
 WSGI_APPLICATION = 'simplfit.wsgi.application'
 STATIC_URL = '/static/'
