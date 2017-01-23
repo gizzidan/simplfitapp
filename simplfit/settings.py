@@ -82,10 +82,7 @@ STATICFILES_DIRS = (
     #This lets Django's collectstatic store our bundles
     os.path.join(BASE_DIR, 'assets'),
     os.path.join(BASE_DIR, 'reactjs'),
-    os.path.join(BASE_DIR, 'blog/static/css'),
-    os.path.join(BASE_DIR, 'landingpage/static/css'),
-    os.path.join(BASE_DIR, 'blog/static/js'),
-    os.path.join(BASE_DIR, 'landingpage/static/js'),
+    os.path.join(BASE_DIR, '/static/'),
 
 
 )
@@ -157,6 +154,8 @@ USE_TZ = True
 
 import dj_database_url
 DATABASES['default'] = dj_database_url.config()
+DATABASES['default']['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
+
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
