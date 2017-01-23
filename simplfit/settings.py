@@ -84,13 +84,11 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'blog/static/js'),
     os.path.join(BASE_DIR, 'landingpage/static/js'),
 
-
 )
 
 
 
 import os
-
 
 
 WEBPACK_LOADER = {
