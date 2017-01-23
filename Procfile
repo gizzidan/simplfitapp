@@ -1,1 +1,1 @@
-web: gunicorn simplfit.wsgi
+web: gunicorn simplfit.wsgi --log-file -
