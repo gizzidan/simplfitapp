@@ -16,31 +16,19 @@
     <title>SimplFit</title>
 
     <!-- Bootstrap core CSS -->
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
 
     <!-- Custom styles for this template -->
     {% block styles %}
     {% endblock styles %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/nivo-lightbox.css' %}">
-    <link rel="stylesheet" href="{% static 'css/nivo-themes/default/default.css' %}">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/nivo-lightbox.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/nivo-themes/default/default.css' %}" />
 
 
-  <style type="text/css">
-  	#mc_embed_signup{background:none; clear:left;  }
-    #mc-embedded-subscribe {  background-color: #F2244A; color: #EDF2F4; }
-
-    #mc-embedded-subscribe:hover {
-
-                              background-color: #831c28;
-                              color: #EDF2F4;
-                    }
-
-  	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-  	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-  </style>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="static/js/ie10-viewport-bug-workaround.js"></script>
@@ -83,12 +71,17 @@
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-
+  {% block scripts %}
+  {% endblock scripts %}
   <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/velocity.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/velocity.ui.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/jquery.waypoints.min.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/retina-1.1.0.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/classie.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/smoothscroll.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/velocity-effects.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
   <script type="text/javascript" src="{% static 'js/nivo-lightbox.min.js' %}"></script>
 

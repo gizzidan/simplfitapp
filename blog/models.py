@@ -4,7 +4,7 @@ from django.template.defaultfilters import slugify
 
 class Category(models.Model):
     name = models.CharField(max_length=255, blank=False, default='')
-    slug = models.SlugField(max_length=100, default='')
+    slug = models.SlugField(max_length=100, default='', unique=True)
 
 
     class Meta:
@@ -22,7 +22,7 @@ class Post(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
     text = models.TextField()
-    categories = models.ManyToManyField(Category )
+    categories = models.ManyToManyField( Category )
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     modified_at = models.DateTimeField(auto_now=True, editable=False)

@@ -1,0 +1,64 @@
+{
+  "name": "simplfit",
+  "version": "1.0.0",
+  "description": "An online marketplace connecting people to fitness professionals",
+  "main": "server.js",
+  "watch": {},
+  "scripts": {
+    "dev": "webpack -d --watch",
+    "build": "webpack -p",
+    "start": "node server.js",
+    "watch": "npm-watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gizzidan/simplfitapp.git"
+  },
+  "keywords": [
+    "fitness",
+    "health",
+    "nutrition",
+    "training",
+    "digital",
+    "health"
+  ],
+  "author": "dan gizzi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gizzidan/simplfitapp/issues"
+  },
+  "homepage": "https://github.com/gizzidan/simplfitapp#readme",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.21.0",
+    "babel-eslint": "^6.1.2",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "eslint": "^3.13.1",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.3.2",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-uglify": "^2.0.0",
+    "jquery": "^3.1.1",
+    "react": "^0.14.8",
+    "redux-devtools": "^3.1.1",
+    "webpack": "^1.14.0",
+    "webpack-bundle-tracker": "^0.2.0",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+    "hover.css": "^2.0.2",
+    "es6-promise": "^3.1.2",
+    "isomorphic-fetch": "^2.2.1",
+    "lodash": "^4.5.1",
+    "radium": "^0.16.6",
+    "react-cookie": "^0.4.5",
+    "react-dom": "^0.14.8",
+    "react-redux": "^4.4.0",
+    "redux": "^3.3.1",
+    "redux-thunk": "^1.0.3"
+  }
+}

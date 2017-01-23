@@ -1,0 +1,44 @@
+{% extends 'landingpage/base.html' %}
+{% load render_bundle from webpack_loader %}
+
+
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/blogcss.css' %}">
+{% endblock styles %}
+
+{% block content %}
+
+<div>
+  <div class="jumbotron", id="bloghead">
+    <div class="container">
+      <div class="row centered">
+        <h1>SimplFit Blog</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="container">
+  {% render_bundle 'main' %}
+</div>
+
+<div class="container">
+  <div class="row post">
+    {% for post in posts %}
+    <div class="col-md-4">
+        
+              <h1><a href="{% url 'post_detail' slug=post.slug pk=post.pk %}">{{ post.title }}</a></h1>
+              <div class="date">
+                  {{ post.published_date }}
+              </div>
+            <div class="row">
+              <p>{{ post.text|linebreaksbr|truncatewords:35 }}</p>
+            </div>
+
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}

@@ -1,42 +1,52 @@
 {% extends 'landingpage/base.html' %}
+{% load render_bundle from webpack_loader %}
+
 
 {% load static %}
 
 {% block styles %}
     <link rel="stylesheet" href="{% static 'css/blogcss.css' %}">
-
-
 {% endblock styles %}
 
 {% block content %}
 
-<div>
-  <div class="jumbotron", id="bloghead">
-    <div class="container">
-      <div class="row centered">
-        <h1>SimplFit Blog</h1>
-      </div>
+<div class="container alignleft" id="bloghead">
+  <div class="col-xs-12">
+    <div class="row">
+      <h1>SIMPLFIT BLOG</h1>
+      {% if categories %}
+      <ul style="list-style:none; padding-bottom:12px;">
+        {% for category in categories %}
+          <li style="display:inline-block"><a href="{% url 'category_detail' category.slug %}">
+            {% if forloop.last %}
+            <h4>{{ category.name }}</h4></a></li>
+            {% else %}
+            <h4>{{ category.name }}<span style="color:#999; padding:4px">/</span></h4></a></li>
+            {% endif %}
+        {% endfor %}
+      </ul>
+      {% endif %}
     </div>
   </div>
 </div>
+<hr>
 
-
-<div class="container-fluid">
-  <div class="col-md-offset-1 col-xs-3">
+<div class="container alignleft">
+  <div class="post">
     {% for post in posts %}
-        <div class="post">
-          <div class="row">
-            <h1><a href="{% url 'post_detail' slug=post.slug pk=post.pk %}">{{ post.title }}</a></h1>
-            <div class="date">
-                {{ post.published_date }}
-            </div>
-          </div>
-          <div class="row">
-            <p>{{ post.text|linebreaksbr|truncatewords:35 }}</p>
-          </div>
-        </div>
+    <div class="col-md-4">
+      <h2 class="row"><a href="{% url 'post_detail' slug=post.slug pk=post.pk %}">{{ post.title }}</a></h2>
+      <div class="row">
+        {% for category in post.categories.all %}
+      <h5><a href="{% url 'category_detail' category.slug %}">{{ category.name }}</a>
+        {% endfor %}</h5>
+      </div>
+      <div class="row date">{{ post.published_date }}</div>
+      <div class="row">
+        <p>{{ post.text|linebreaksbr|truncatewords:35 }}</p>
+      </div>
+    </div>
     {% endfor %}
   </div>
-
 </div>
 {% endblock content %}

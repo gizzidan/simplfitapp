@@ -1,7 +1,14 @@
 *.pyc
 *~
 __pycache__
-myvenv
+simplfit/bin
+simplfit/lib
+pip-selfcheck.json
+node_modules
 db.sqlite3
 /static
 .DS_Store
+*.log
+local_settings.py
+pip-log.txt
+pip-delete-this-directory.txt
