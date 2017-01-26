@@ -23,9 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '@xmp24=)$zo)d#i+*3oxkin(x8j=yvyfccl5pbtu1)20orekzp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -37,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'compressor',
     'webpack_loader',
     'rest_framework',
     'blog',
@@ -71,9 +70,17 @@ TEMPLATES = [
         },
     },
 ]
+
+COMPRESS_PRECOMPILERS = (
+    ('text/less', 'lessc {infile} {outfile}'),
+)
+
+INTERNAL_IPS = ( '127.0.0.1',)
+
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
     )
 
 WSGI_APPLICATION = 'simplfit.wsgi.application'
@@ -84,7 +91,8 @@ STATICFILES_DIRS = (
     #This lets Django's collectstatic store our bundles
     os.path.join(BASE_DIR, 'assets'),
     os.path.join(BASE_DIR, 'reactjs'),
-
+    os.path.join(BASE_DIR, 'landingpage/static/css'),
+    os.path.join(BASE_DIR, 'blog/static'),
 
 )
 
@@ -157,12 +165,11 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 import dj_database_url
 DATABASES['default'] = dj_database_url.config()
 
-
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 ALLOWED_HOSTS = ['*']
 
-DEBUG = False
+DEBUG = True
 
 try:
     from .local_settings import *

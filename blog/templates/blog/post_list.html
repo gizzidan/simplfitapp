@@ -1,11 +1,16 @@
 {% extends 'landingpage/base.html' %}
 {% load render_bundle from webpack_loader %}
-
-
+{% load compress %}
 {% load static %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{% static 'css/blogcss.css' %}">
+  {% if debug == True %}
+    <link rel="stylesheet" type="text/less" media="all" href="{% static 'less/blogcss.less' %}" />
+  {% else %}
+    {% compress css %}
+      <link rel="stylesheet" type="text/less" media="all" href="{% static 'less/blogcss.less' %}" />
+    {% endcompress %}
+  {% endif %}
 {% endblock styles %}
 
 {% block content %}
@@ -30,6 +35,11 @@
   </div>
 </div>
 <hr>
+
+<div id="container">
+  {% render_bundle 'vendors' %}
+  {% render_bundle 'App2' %}
+</div>
 
 <div class="container alignleft">
   <div class="post">
