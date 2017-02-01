@@ -10,6 +10,7 @@ from rest_framework.permissions import IsAdminUser
 from rest_framework.response import Response
 from .serializers import PostSerializer
 
+
 def getSortedCategories():
     return Category.objects.annotate( count= Count( 'post' ) ).order_by( '-count' )
 
@@ -29,16 +30,19 @@ def category_detail( request, slug ):
     #return render(request, 'blog/post_list.html', {'posts': posts, 'categories': getSortedCategories()})#
 
 class PostList(generics.ListCreateAPIView):
+    serializer_class = PostSerializer
+    queryset = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+
 
     def get(self, request, format=None):
          posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-         serializer = PostSerializer(post, many=True)
+         serializer = PostSerializer(posts, many=True)
          return Response(serializer.data)
 
     @permission_classes((IsAdminUser, ))
     def post(self, request, format=None):
         user = request.user
-        serializer = PostSerializer(data=request.data, context=('user':user))
+        serializer = PostSerializer(data=request.data, context={'user': user})
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)

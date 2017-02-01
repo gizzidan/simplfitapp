@@ -16,12 +16,15 @@
     {% endblock %}
 
     <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="all">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" media="all">
+
+
+
 
     <!-- Custom styles for this template -->
-    {% block styles %}
-    {% endblock styles %}
     {% if debug == True %}
       <link rel="stylesheet" type="text/less" media="all" href="{% static 'less/theme.less' %}" />
       <link rel="stylesheet" type="text/less" media="all" href="{% static 'less/main.less' %}" />
@@ -32,11 +35,14 @@
         <link rel="stylesheet" type="text/less" media="all" href="{% static 'less/main.less' %}" />
       {% endcompress %}
     {% endif %}
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/nivo-lightbox.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/nivo-themes/default/default.css' %}" />
 
+
+    {% compress css %}
+      {% block styles %}
+      {% endblock styles %}
+      <link rel="stylesheet" href="{% static 'css/nivo-lightbox.css' %}" />
+      <link rel="stylesheet" href="{% static 'css/nivo-themes/default/default.css' %}" />
+    {% endcompress %}
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script type="text/javascript" src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
@@ -80,20 +86,21 @@
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-  {% block scripts %}
-  {% endblock scripts %}
-  <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
-  <script type="text/javascript" src="{% static 'js/velocity.min.js' %}"></script>
-  <script type="text/javascript" src="{% static 'js/velocity.ui.min.js' %}"></script>
-  <script type="text/javascript" src="{% static 'js/jquery.waypoints.min.js' %}"></script>
-  <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
-  <script type="text/javascript" src="{% static 'js/retina-1.1.0.js' %}"></script>
-  <script type="text/javascript" src="{% static 'js/classie.js' %}"></script>
-  <script type="text/javascript" src="{% static 'js/smoothscroll.js' %}"></script>
-  <script type="text/javascript" src="{% static 'js/velocity-effects.js' %}"></script>
-  <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
-  <script type="text/javascript" src="{% static 'js/nivo-lightbox.min.js' %}"></script>
-
+  {% compress js %}
+    {% block scripts %}
+    {% endblock scripts %}
+    <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/velocity.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/velocity.ui.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/retina-1.1.0.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/classie.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/smoothscroll.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/velocity-effects.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/nivo-lightbox.min.js' %}"></script>
+  {% endcompress %}
 
   <script>
   // Nivo Lightbox initialization

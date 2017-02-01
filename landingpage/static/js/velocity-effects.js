@@ -48,7 +48,6 @@ function animateElems() {
 
 $( document ).ready(function() {
   $(".info1").velocity({ opacity: 0 });
-  $("#tagline").velocity({ opacity: 0 });
   $("#fact1").velocity({ opacity: 0 });
   $("#fact2").velocity({ opacity: 0 });
   $(".fitimg").velocity({ opacity: 0 });

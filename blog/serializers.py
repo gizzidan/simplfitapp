@@ -16,5 +16,5 @@ class PostSerializer(serializers.ModelSerializer):
         modified_at = validated_data.get('modified_at', None)
         slug = validated_data.get('slug', None)
         return Post.objects.create(title=title, author=user, text=text, categories=categories,
-                                    created_date=created_date, published_date=published_date
+                                    created_date=created_date, published_date=published_date,
                                     modified_at=modified_at, slug=slug)

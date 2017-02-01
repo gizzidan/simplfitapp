@@ -75,6 +75,10 @@ COMPRESS_PRECOMPILERS = (
     ('text/less', 'lessc {infile} {outfile}'),
 )
 
+COMPRESS_ENABLED = True
+COMPRESS_CSS_FILTERS = ["compressor.filters.cssmin.CSSMinFilter"]
+COMPRESS_JS_FILTERS = ["compressor.filters.jsmin.JSMinFilter"]
+
 INTERNAL_IPS = ( '127.0.0.1',)
 
 STATICFILES_FINDERS = (
@@ -169,7 +173,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 ALLOWED_HOSTS = ['*']
 
-DEBUG = True
+DEBUG = False
 
 try:
     from .local_settings import *
