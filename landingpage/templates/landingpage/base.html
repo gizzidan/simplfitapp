@@ -37,9 +37,10 @@
     {% endif %}
 
 
-    {% compress css %}
+
       {% block styles %}
       {% endblock styles %}
+    {% compress css %}
       <link rel="stylesheet" href="{% static 'css/nivo-lightbox.css' %}" />
       <link rel="stylesheet" href="{% static 'css/nivo-themes/default/default.css' %}" />
     {% endcompress %}
