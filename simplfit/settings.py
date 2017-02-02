@@ -97,7 +97,6 @@ STATICFILES_DIRS = (
     #This lets Django's collectstatic store our bundles
     os.path.join(BASE_DIR, 'assets'),
     os.path.join(BASE_DIR, 'reactjs'),
-    os.path.join(BASE_DIR, 'simplfit2/landingpage/static/css/*.css'),
 
 
 )
@@ -165,7 +164,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 from whitenoise import WhiteNoise
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 
 
