@@ -23,7 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '@xmp24=)$zo)d#i+*3oxkin(x8j=yvyfccl5pbtu1)20orekzp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+ALLOWED_HOSTS = ['*']
 
+DEBUG = False
 
 
 # Application definition
@@ -169,12 +171,3 @@ import dj_database_url
 DATABASES['default'] = dj_database_url.config()
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-ALLOWED_HOSTS = ['*']
-
-DEBUG = False
-
-try:
-    from .local_settings import *
-except ImportError:
-    pass
