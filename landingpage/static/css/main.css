@@ -114,7 +114,7 @@ hr {
 
 
 .navbar .navbar-brand {
-  font-family: @logoFont;
+  font-family: "Shadows Into Light", cursive;
   font-size: 33px;
   color: @orange;
   letter-spacing: 0.75px;
