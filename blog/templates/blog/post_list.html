@@ -1,16 +1,9 @@
 {% extends 'landingpage/base.html' %}
 {% load render_bundle from webpack_loader %}
-{% load compress %}
 {% load static %}
 
 {% block styles %}
-  {% if debug == True %}
-    <link rel="stylesheet" type="text/less" media="all" href="{% static 'less/blogcss.less' %}" />
-  {% else %}
-    {% compress css %}
-      <link rel="stylesheet" type="text/less" media="all" href="{% static 'less/blogcss.less' %}" />
-    {% endcompress %}
-  {% endif %}
+  <link rel="stylesheet" type="text/less" media="all" href="{% static 'css/blogcss.css' %}" />
 {% endblock styles %}
 
 {% block content %}

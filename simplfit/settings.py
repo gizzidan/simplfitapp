@@ -36,7 +36,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'compressor',
     'webpack_loader',
     'rest_framework',
     'blog',
@@ -73,19 +72,13 @@ TEMPLATES = [
     },
 ]
 
-COMPRESS_ENABLED=True
-COMPRESS_PRECOMPILERS = (
-    ('text/less','lessc {infile} {outfile}'),
-)
-COMPRESS_CSS_FILTERS = ["compressor.filters.cssmin.CSSMinFilter"]
-COMPRESS_JS_FILTERS = ["compressor.filters.jsmin.JSMinFilter"]
+
 
 INTERNAL_IPS = ( '127.0.0.1',)
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
     )
 
 WSGI_APPLICATION = 'simplfit.wsgi.application'

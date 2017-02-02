@@ -1,5 +1,4 @@
 {% load staticfiles %}
-{% load compress %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,23 +24,11 @@
 
 
     <!-- Custom styles for this template -->
-    {% if debug == True %}
-      <link rel="stylesheet" type="text/less" media="all" href="{% static 'css/theme.less' %}" />
-      <link rel="stylesheet" type="text/less" media="all" href="{% static 'css/main.less' %}" />
-      <script src="{% static 'js/less.min.js' %}"></script>
-    {% else %}
-      {% compress css %}
-        <link rel="stylesheet" type="text/less" media="all" href="{% static 'css/theme.less' %}" />
-        <link rel="stylesheet" type="text/less" media="all" href="{% static 'css/main.less' %}" />
-      {% endcompress %}
-    {% endif %}
-
-    {% compress css %}
-    {% block styles %}
-    {% endblock styles %}
+      <link rel="stylesheet" type="text/less" media="all" href="{% static 'css/main.css' %}" />
+      {% block styles %}
+      {% endblock styles %}
       <link rel="stylesheet" href="{% static 'css/nivo-lightbox.css' %}" />
       <link rel="stylesheet" href="{% static 'css/nivo-themes/default/default.css' %}" />
-    {% endcompress %}
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script type="text/javascript" src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
@@ -85,7 +72,6 @@
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-  {% compress js %}
     {% block scripts %}
     {% endblock scripts %}
     <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
@@ -99,7 +85,6 @@
     <script type="text/javascript" src="{% static 'js/velocity-effects.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/nivo-lightbox.min.js' %}"></script>
-  {% endcompress %}
 
   <script>
   // Nivo Lightbox initialization

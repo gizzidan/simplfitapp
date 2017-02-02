@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Baloo+Thambi|Bungee|Lato:100,300,300i,400,400i,700,700i|Raleway:200,300,400,500,600,700|Roboto:300,300i,400,400i,500,500i,700,700i|Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i|Vollkorn:400,400i,700,700i|Work+Sans:100,200,300,400,500,600,700');
 @import url('https://fonts.googleapis.com/css?family=Bungee+Hairline|Raleway:100,200,300,400|Shadows+Into+Light');
-@import 'theme';
+
 
 * {
 	margin: 0;
 	padding: 0px;
-    font-family: @mainFontFamily;
+  font-family: 'Lato', sans-serif;
 }
 body {
 	background: #fff;
@@ -17,7 +17,7 @@ body {
 p {
 	padding: 0;
 	margin-bottom: 12px;
-    font-family: @mainFontFamily;
+  font-family: 'Lato', sans-serif;
 	font-weight: 300;
 	font-size: 18px;
 	line-height: 28px;
@@ -315,7 +315,7 @@ hr {
 }
 
 #h h1 {
-	font-family: @logoFont;
+	font-family: 'Shadows Into Light', cursive;
 	font-size: 90px;
 	letter-spacing: 2px;
   background: linear-gradient(to right, #FF512F, #DD2476);
@@ -327,7 +327,7 @@ hr {
   background: linear-gradient(to right, #FF512F, #DD2476);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-	font-family: @mainFontFamily;
+	font-family: 'Lato', sans-serif;
 	font-weight: 300;
   font-size: 52px;
 }
@@ -363,7 +363,7 @@ hr {
 }
 
 .cta {
-	background: @orange;
+	background: #F64747;
 	color: white;
 	padding-top: 50px;
 	padding-bottom: 50px;
@@ -373,7 +373,7 @@ hr {
 
 .cta h2 {
 	text-align: center;
-	font-family: @mainFontFamily;
+	font-family: "Lato". sans-serif;
   font-weight: 300;
 }
 
@@ -393,13 +393,13 @@ hr {
 	height: 120px;
 	margin: 0 auto;
 	border-radius: 50%;
-  border: 2px solid @blue;
+  border: 2px solid #1E88E5;
   background-color: transparent;
 	position: relative;
 }
 
 .circle-icon .icon {
-	color: @blue;
+	color: #1E88E5;
 	line-height: 120px;
 	text-align: center;
 }
@@ -431,7 +431,7 @@ hr {
 
 
 .btn-android {
-	background: @blue;
+	background: #1E88E5;
 	border-radius: 30px;
 	padding: 16px 31px 16px;
 	color: white;
@@ -469,7 +469,7 @@ hr {
 }
 
 .features h3 {
-	color: @orange;
+	color: #F64747;
 }
 
 .features2 {
@@ -488,19 +488,19 @@ hr {
 }
 
 .features2 h3 {
-	color: @blue;
+	color: #1E88E5;
 }
 
 .f-t h2, .f-t i {
-	color: @blue;
+	color: #1E88E5;
 }
 
 .f-t2 h2, .f-t2 i {
-	color: @orange;
+	color: #F64747;
 }
 
 .chevrondown i {
-	color: @blue;
+	color: #1E88E5;
 }
 
 /* Showcase Conf */
