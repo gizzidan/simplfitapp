@@ -73,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-COMPRESS_ENABLED=True
+COMPRESS_ENABLED=False
 COMPRESS_PRECOMPILERS = (
     ('text/less','lessc {infile} {outfile}'),
 )
