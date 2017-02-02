@@ -77,7 +77,7 @@ TEMPLATES = [
 COMPRESS_PRECOMPILERS = (
     ('text/less', 'lessc {infile} {outfile}'),
 )
-
+COMPRESS_ENABLED = os.environ.get('COMPRESS_ENABLED', False)
 COMPRESS_CSS_FILTERS = ["compressor.filters.cssmin.CSSMinFilter"]
 COMPRESS_JS_FILTERS = ["compressor.filters.jsmin.JSMinFilter"]
 
