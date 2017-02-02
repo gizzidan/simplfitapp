@@ -73,6 +73,7 @@ TEMPLATES = [
     },
 ]
 
+
 COMPRESS_ENABLED=True
 COMPRESS_OFFLINE=True #this is so that compress_offline is set to true during deployment to Heroku
 COMPRESS_PRECOMPILERS = (
