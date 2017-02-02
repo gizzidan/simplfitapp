@@ -73,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-
+COMPRESS_OFFLINE=True
 COMPRESS_ENABLED=True
 COMPRESS_PRECOMPILERS = (
     ('text/less','lessc {infile} {outfile}'),
@@ -164,7 +164,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 from whitenoise import WhiteNoise
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
 
