@@ -18,7 +18,7 @@ class PostMonthArchiveView(MonthArchiveView):
     allow_future = False
 
 def getSortedCategories():
-    return Category.objects.annotate( count= Count( 'post' ) ).order_by( '-count' )
+    return Category.objects.order_by( 'name' )
 
 def category_detail( request, slug ):
     category = get_object_or_404( Category, slug= slug )
