@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'landingpage',
 ]
 
-
+DISQUS_API_KEY = 'mYmkN1p6RZE7WJj2SricEHpYzGFTU7lFgdzzfOknD9RVfeza7cmIu8I9NrlNVDqy'
+DISQUS_WEBSITE_SHORTNAME = 'SimplFit'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -82,9 +83,10 @@ STATICFILES_FINDERS = (
     )
 
 WSGI_APPLICATION = 'simplfit.wsgi.application'
-STATIC_URL = '/static/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/img')
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 STATICFILES_DIRS = (
     #This lets Django's collectstatic store our bundles
     os.path.join(BASE_DIR, 'assets'),
@@ -166,7 +168,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 ALLOWED_HOSTS = ['*']
 
-DEBUG = False
+DEBUG = True
 
 try:
     from .local_settings import *

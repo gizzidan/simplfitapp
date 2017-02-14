@@ -3,20 +3,57 @@
 {% load static %}
 
 {% block styles %}
-    <link rel="stylesheet" href="{% static 'css/blogcss.css' %}">
+<link rel="stylesheet" href="{% static 'css/blogcss.css' %}">
+
 {% endblock styles %}
 
+{% block scripts %}
+
+{% endblock scripts %}
+
+{% block title %}
+<title>{{ post.title }}</title>
+{% endblock title %}
+
 {% block content %}
+<div class="container-fluid alignleft" id="bloghead">
+  <div class="col-sm-12">
+    <div class="row">
+      <ul style="list-style:none; padding-bottom:12px;">
+        <li style="display:inline-block"><a href="{% url 'index' %}">
+          <h3><i class="fa fa-home" aria-hidden="true"></i><span style="color:#999; padding:4px"> /</span></h3></a></li>
+      {% if categories %}
+        <li style="display:inline-block"><a href="{% url 'post_list' %}">
+          <h3>All<span style="color:#999; padding:4px"> /</span></h3></a></li>
+        {% for category in categories %}
+          <li style="display:inline-block"><a href="{% url 'category_detail' category.slug %}">
+            {% if forloop.last %}
+            <h3>{{ category.name }}</h3></a></li>
+            {% else %}
+            <h3>{{ category.name }}<span style="color:#999; padding:4px"> /</span></h3></a></li>
+            {% endif %}
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </div>
+</div>
+<hr>
+
+<div class="container-fluid image">
+  <img src="{{ post.image.url }}" class="img-fluid">
+</div>
 
 <div class="post-detail">
   <div class="container">
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
         <h1>{{ post.title }}</h1>
-        <h2>
+        <hr>
+        <h5>
         {% for category in post.categories.all %}
             <a href="{% url 'category_detail' category.slug %}">{{ category.name }}</a>
-        {% endfor %}</h2>
+        {% endfor %}</h5>
         {% if post.published_date %}
         <div class="date">
           {{ post.published_date }}
@@ -26,7 +63,7 @@
         {% endif %}
         </div>
 
-            <p id="post-detail-text">{{ post.text|linebreaksbr }}</p>
+            <p id="post-detail-text" class="content-markdown">{{ post.text }}</p>
 
 
       </div>
@@ -38,10 +75,9 @@
 </div>
 
 
-            <div class="col-xs-4 col-xs-offset-4">
-              {% if user.is_authenticated %}
-                <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-              {% endif %}
-            </div>
+
 
 {% endblock content %}
+{% block share %}
+<script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58a265d20d4adcf8"></script>
+{% endblock share %}

@@ -9,13 +9,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="static/img/favicon.ico">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
     {% block title %}
     {% endblock %}
 
     <!-- Bootstrap core CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="all">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" media="all">
@@ -28,7 +26,6 @@
       {% block styles %}
       {% endblock styles %}
       <link rel="stylesheet" href="{% static 'css/nivo-lightbox.css' %}" />
-      <link rel="stylesheet" href="{% static 'css/nivo-themes/default/default.css' %}" />
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script type="text/javascript" src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
@@ -72,19 +69,32 @@
   <!-- Bootstrap core JavaScript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-    {% block scripts %}
-    {% endblock scripts %}
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.content-markdown').each(function(){
+          var content = $(this).text()
+          var markedContent = marked(content)
+          $(this).html(markedContent)
+        })
+      })
+    </script>
     <script type="text/javascript" src="{% static 'js/velocity.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/velocity.ui.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/jquery.waypoints.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/retina-1.1.0.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/classie.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/smoothscroll.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/velocity-effects.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/nivo-lightbox.min.js' %}"></script>
+    {% block scripts %}
+    {% endblock scripts %}
 
   <script>
   // Nivo Lightbox initialization
@@ -94,6 +104,7 @@
   });
   </script>
 
-
+  {% block share %}
+  {% endblock share %}
 </body>
 </html>

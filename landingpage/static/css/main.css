@@ -82,7 +82,6 @@ a {
 	-o-transition: background-color .4s linear, color .4s linear;
 	-ms-transition: background-color .4s linear, color .4s linear;
 	transition: background-color .4s linear, color .4s linear;
-	color: #1abc9c;
 }
 a:hover,
 a:focus {
@@ -116,7 +115,7 @@ hr {
 .navbar .navbar-brand {
   font-family: "Shadows Into Light", cursive;
   font-size: 33px;
-  color: @orange;
+  color: #F64747;
   letter-spacing: 0.75px;
   text-decoration: none;
   text-shadow: none;

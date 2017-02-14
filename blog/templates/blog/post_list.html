@@ -1,25 +1,54 @@
 {% extends 'landingpage/base.html' %}
-{% load render_bundle from webpack_loader %}
 {% load static %}
 
+
 {% block styles %}
-  <link rel="stylesheet" type="text/less" media="all" href="{% static 'css/blogcss.css' %}" />
+  <link rel="stylesheet" media="all" href="{% static 'css/blogcss.css' %}" />
+  <link rel="stylesheet" media="all" href="{% static 'css/slick.css' %}" />
+  <link rel="stylesheet" media="all" href="{% static 'css/slick-theme.css' %}" />
+  <style type="text/css">
+    #mc_embed_signup{background:none;  }
+    #mc-embedded-subscribe {  color: #F64747;
+                              border: 2px solid #F64747;}
+
+    #mc-embedded-subscribe:hover {
+                              border: 2px solid #DD2476;
+                              background-color: #DD2476;
+                              color: #EDF2F4;
+                    }
+
+    /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+       We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+  </style>
 {% endblock styles %}
+
+{% block scripts %}
+  <script type="text/javascript" src="{% static 'js/slick.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/slickinit.js' %}"></script>
+{% endblock scripts %}
+
+{% block title %}
+<title>SimplFit Blog</title>
+{% endblock title %}
 
 {% block content %}
 
-<div class="container alignleft" id="bloghead">
-  <div class="col-xs-12">
+<div class="container-fluid alignleft" id="bloghead">
+  <div class="col-sm-12">
     <div class="row">
       <h1>SIMPLFIT BLOG</h1>
-      {% if categories %}
       <ul style="list-style:none; padding-bottom:12px;">
+        <li style="display:inline-block"><a href="{% url 'index' %}">
+          <h3><i class="fa fa-home" aria-hidden="true"></i><span style="color:#999; padding:4px"> /</span></h3></a></li>
+      {% if categories %}
+        <li style="display:inline-block"><a href="{% url 'post_list' %}">
+          <h3>All<span style="color:#999; padding:4px"> /</span></h3></a></li>
         {% for category in categories %}
           <li style="display:inline-block"><a href="{% url 'category_detail' category.slug %}">
             {% if forloop.last %}
-            <h4>{{ category.name }}</h4></a></li>
+            <h3>{{ category.name }}</h3></a></li>
             {% else %}
-            <h4>{{ category.name }}<span style="color:#999; padding:4px">/</span></h4></a></li>
+            <h3>{{ category.name }}<span style="color:#999; padding:4px"> /</span></h3></a></li>
             {% endif %}
         {% endfor %}
       </ul>
@@ -29,27 +58,92 @@
 </div>
 <hr>
 
-<div id="container">
-  {% render_bundle 'vendors' %}
-  {% render_bundle 'App2' %}
+<div class="postcarousel">
+  <div class="card card-inverse card-primary p-3 text-center">
+  <blockquote class="card-blockquote">
+    <p><i class="fa fa-quote-left" aria-hidden="true"></i>
+      I'm going to succeed because I'm crazy enough to think I can. <i class="fa fa-quote-right" aria-hidden="true"></i></p>
+    <footer>
+      <h6 class="aligncenter">
+        <cite title="Source Title">C.T. Fletcher</cite>, Powerlifter/Bodybuilder/Coach
+      </h6>
+    </footer>
+  </blockquote>
+  </div>
+  <div class="card card-inverse card-primary p-3 text-center">
+  <blockquote class="card-blockquote">
+    <p><i class="fa fa-quote-left" aria-hidden="true"></i>
+      If I walked away then, I wouldn't be here now. <i class="fa fa-quote-right" aria-hidden="true"></i></p>
+    <footer>
+      <h6 class="aligncenter">
+        <cite title="Source Title">Serena Williams</cite>, Champion Tennis Player
+      </h6>
+    </footer>
+  </blockquote>
+  </div>
+  <div class="card card-inverse card-primary p-3 text-center">
+  <blockquote class="card-blockquote">
+    <p><i class="fa fa-quote-left" aria-hidden="true"></i>
+      If you accept the expectations of others, especially negative ones, then you never will change the outcome. <i class="fa fa-quote-right" aria-hidden="true"></i></p>
+    <footer>
+      <h6 class="aligncenter">
+        <cite title="Source Title">Michael Jordan</cite>, Basketball Player
+      </h6>
+    </footer>
+  </blockquote>
+  </div>
+  <div id="mc_embed_signup", class="m">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <form action="//twitter.us13.list-manage.com/subscribe/post?u=1620f54b963340bdb69908dbb&amp;id=4bdb0a57f3" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+              <div id="mc_embed_signup_scroll">
+                <div class="mc-field-group form-group">
+                    <label for="mce-EMAIL" class="sr-only">Email Address </label>
+                    <input type="email" value="" name="EMAIL" class="z1 form-control subscribe-input required email" id="mce-EMAIL" placeholder="Enter e-mail...">
+                </div>
+                 <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+              <div style="position: absolute; left: -5000px;"><input type="text" name="b_1620f54b963340bdb69908dbb_4bdb0a57f3" tabindex="-1" value=""></div>
+              <div class="form-group"><input type="submit" value="Learn More" name="subscribe" id="mc-embedded-subscribe" class="btn btn-submit subscribe-submit"></div>
+              </div>
+             <div id="mce-responses" class="clear">
+                  <div class="response" id="mce-error-response" style="display:none"></div>
+                  <div class="response" id="mce-success-response" style="display:none"></div>
+              </div>
+          </form>
+        </div>
+      </div>
+  </div>
+
+<!--End mc_embed_signup-->
 </div>
 
-<div class="container alignleft">
-  <div class="post">
+
+<div id="blogcontent" class="container-fluid">
+  <div class="card-columns" style="padding:20px;">
     {% for post in posts %}
-    <div class="col-md-4">
-      <h2 class="row"><a href="{% url 'post_detail' slug=post.slug pk=post.pk %}">{{ post.title }}</a></h2>
-      <div class="row">
-        {% for category in post.categories.all %}
-      <h5><a href="{% url 'category_detail' category.slug %}">{{ category.name }}</a>
-        {% endfor %}</h5>
-      </div>
-      <div class="row date">{{ post.published_date }}</div>
-      <div class="row">
-        <p>{{ post.text|linebreaksbr|truncatewords:35 }}</p>
+    <div class="card">
+      <div class="post">
+        {% if post.image %}
+          <img class="img-fluid card-img-top" src="{{ post.image.url }}" alt="Card image cap">
+        {% endif %}
+        <div class="card-block">
+          <h4 class="card-title"><a href="{% url 'post_detail' slug=post.slug pk=post.pk %}">{{ post.title }}</a></h4>
+          {% for category in post.categories.all %}
+            <h3 style="padding-bottom:10px;" class="card-subtitle"><a href="{% url 'category_detail' category.slug %}">{{ category.name }}</a>
+          {% endfor %}</h3>
+            <a href="https://twitter.com/share" id="twitter" class="twitter-share-button" data-size="small" data-via="simplfit" data-hashtags="fitness" data-show-count="true">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+            {% if post.abstract %}
+            <p class="card-text">{{ post.abstract }}</p>
+            {% endif %}
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">{{ post.published_date }} by {{ post.author }}</small>
+        </div>
       </div>
     </div>
     {% endfor %}
   </div>
 </div>
+
+
 {% endblock content %}

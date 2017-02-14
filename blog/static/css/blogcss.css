@@ -1,14 +1,23 @@
-@import url('https://fonts.googleapis.com/css?family=Baloo+Thambi|Bungee|Lato:300,300i,400,400i,700,700i|Raleway:200,300,400,500,600,700|Roboto:300,300i,400,400i,500,500i,700,700i|Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i|Vollkorn:400,400i,700,700i|Work+Sans:100,200,300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i|Raleway:200,300,400,500,600,700|Roboto:300,300i,400,400i,500,500i,700,700i|Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i|Work+Sans:100,200,300,400,500,600,700');
+
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+
+body{
+
+}
 
 hr {
-  margin-bottom: 40px !important;
+  margin-bottom: 0px !important;
   width: 93% !important;
   margin-left: auto !important;
   margin-right: auto !important;
   height: 1px !important;
   border: none !important;
-  color: #9c9c9c !important;
-  background-color: #9c9c9c !important;
+
 }
 
 h1 a {
@@ -20,7 +29,7 @@ h2 a {
 
 }
 
-h4 {
+h3 {
   font-family: "Lato", sans-serif;
   font-weight:400;
   font-size:18px;
@@ -28,6 +37,15 @@ h4 {
   color: #333;
 }
 
+li a h3:hover {
+  color: #1E88E5;
+}
+
+
+h4 a {
+  color: #444;
+  font-family: "Roboto", sans-serif;
+}
 
 h5 a {
   font-size: 120%;
@@ -36,42 +54,76 @@ h5 a {
 
 
 .post {
-  padding-top: 10px;
-  margin-left: 30px;
 }
 .post p {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'San Francisco', sans-serif;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 17px;
   color: #444;
   line-height: 150%;
   letter-spacing: 150%;
-  margin-top: -15px;
 }
 
+.image {
+  padding: 0px;
+  margin: 0px;
+  left: 0;
+  top: 0;
+}
 .post-detail {
   padding: 50px;
 }
 
 
 .post-detail h1 {
-  font-family: 'Bungee', cursive;
-  color: #222;
-  font-weight: 400;
-  font-size: 55px;
-  text-align: left;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 80px;
+  letter-spacing: 2px;
   padding-bottom: 10px;
+  color: #F64747;
+}
+
+.post-detail h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 60px;
+  color: #F64747;
+
+}
+
+.post-detail h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 45px;
+  letter-spacing: .5px;
+  color: #F64747;
+
+}
+
+.post-detail h4 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  letter-spacing: .5px;
+
+}
+
+.post-detail h5 {
+  font-family: "Roboto", sans-serif;
+  color: #1E88E5;
+
 }
 
 
 
 .post-detail p {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'San Francisco', sans-serif;
   font-weight: 400;
-  font-size: 18px;
-  color: #444;
+  font-size: 19px;
+  color: #333;
   text-align: left;
-  line-height: 150%;
+  line-height: 175%;
   letter-spacing: 150%;
 
 }
@@ -82,7 +134,7 @@ h5 a {
 
 #bloghead {
   list-style: none;
-  padding-top: 10px;
+  padding-top: 35px;
   margin-left: 30px;
 }
 
@@ -90,8 +142,15 @@ h5 a {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   letter-spacing: 2px;
+  padding-bottom: 10px;
   color: #F64747;
 
+}
+
+
+
+#bloghead h3 {
+  padding-bottom: 20px;
 }
 
 #bloghead li a {
@@ -99,6 +158,79 @@ h5 a {
 }
 
 
+#blogcontent h1 {
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 2px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+#blogcontent {
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+}
+
+.postcarousel {
+  margin-left: 50px;
+  margin-right: 50px;
+  display: none;
+}
+
+.postcarousel .card {
+  display: block;
+}
+
+.postcarousel.slick-initialized .card {
+  display: block;
+}
+
+.card-inverse {
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.card-inverse p {
+  color: white;
+  text-align: center;
+  font-weight: 400;
+}
+
+.card-inverse h6 {
+  text-align: center;
+}
+
+.m {
+
+	background: white;
+}
+
+.m input {
+	font-size: 18px;
+	min-height: 59px;
+	border-radius: 50px;
+	line-height: 24px;
+	padding: 16px 30px 20px;
+	border: none;
+	margin-bottom: 10px;
+	background-color: transparent;
+	-webkit-transition: background-color 0.2s;
+	transition: background-color 0.2s;
+}
+
+.m .subscribe-input {
+	float: right;
+  color: black;
+	width: 93%;
+	text-align: left;
+}
+
+.m .subscribe-submit {
+  position: absolute;
+  max-height: 59px;
+  right: 12px;
+	padding-left: 28px;
+}
 
 .page-header {
     padding: 20px 20px 20px 40px;

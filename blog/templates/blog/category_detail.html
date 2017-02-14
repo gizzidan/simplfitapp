@@ -8,13 +8,57 @@
 {% endblock styles %}
 
 {% block content %}
-    <h1>{{ category.name }}</h1>
-    {% if posts %}
-        <ul>
-            {% for post in posts %}
-                <li><a href="{% url 'post_detail' slug=post.slug pk=post.pk %}">{{ post.title }}</a></li>
-            {% endfor %}
-        </ul>
+<div class="container-fluid alignleft" id="bloghead">
+  <div class="col-sm-12">
+    <div class="row">
+      <h1>SIMPLFIT BLOG</h1>
+      {% if categories %}
+      <ul style="list-style:none; padding-bottom:12px;">
+        <li style="display:inline-block"><a href="{% url 'post_list' %}">
+          <h3>All<span style="color:#999; padding:4px"> /</span></h3></a></li>
+        {% for category in categories %}
+          <li style="display:inline-block"><a href="{% url 'category_detail' category.slug %}">
+            {% if forloop.last %}
+            <h3>{{ category.name }}</h3></a></li>
+            {% else %}
+            <h3>{{ category.name }}<span style="color:#999; padding:4px"> /</span></h3></a></li>
+            {% endif %}
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </div>
+</div>
+<hr>
+
+<div id="blogcontent" class="container-fluid">
+      <h1>{{ category.name }}</h1>
+      {% if posts %}
+      <div class="card-columns" style="padding:20px;">
+        {% for post in posts %}
+        <div class="card">
+          <div class="post">
+            {% if post.image %}
+              <img class="img-fluid card-img-top" src="{{ post.image.url }}" alt="Card image cap">
+            {% endif %}
+            <div class="card-block">
+              <h4 class="card-title"><a href="{% url 'post_detail' slug=post.slug pk=post.pk %}">{{ post.title }}</a></h4>
+              {% for category in post.categories.all %}
+                <h3 style="padding-bottom:10px;" class="card-subtitle"><a href="{% url 'category_detail' category.slug %}">{{ category.name }}</a>
+              {% endfor %}</h3>
+                <a href="https://twitter.com/share" id="twitter" class="twitter-share-button" data-size="small" data-via="simplfit" data-hashtags="fitness" data-show-count="true">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                {% if post.abstract %}
+                <p class="card-text">{{ post.abstract }}</p>
+                {% endif %}
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">{{ post.published_date }} by {{ post.author }}</small>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
     {% else %}
         <p>No posts yet.</p>
     {% endif %}

@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.template.defaultfilters import slugify
 
+
 class Category(models.Model):
     name = models.CharField(max_length=255, blank=False, default='')
     slug = models.SlugField(max_length=100, default='', unique=True)
@@ -21,10 +22,16 @@ class Category(models.Model):
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
+    image = models.ImageField(null=True, blank=True,
+            height_field="height_field",
+            width_field="width_field")
+    height_field = models.IntegerField(default=0)
+    width_field = models.IntegerField(default=0)
+    abstract = models.TextField(null=True, blank=True)
     text = models.TextField()
     categories = models.ManyToManyField( Category )
     created_date = models.DateTimeField(default=timezone.now)
-    published_date = models.DateTimeField(blank=True, null=True)
+    published_date = models.DateTimeField(blank=True, null=True,)
     modified_at = models.DateTimeField(auto_now=True, editable=False)
     slug = models.SlugField(default='', editable=False, unique=True, max_length=140)
 
@@ -56,5 +63,6 @@ class Post(models.Model):
         if not self.slug:
             self.slug = self._get_unique_slug()
         super().save()
+
 
 # Create your models here.
