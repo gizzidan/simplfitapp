@@ -74,6 +74,26 @@ $( document ).ready(function() {
     offset: '1%'
   });
 
+  $("#recentposts").waypoint(function(direction) {
+    if (direction === 'down') {
+      $(".navbar .navbar-brand").velocity({
+        color: "#F64747"
+      }, { duration: "5" });
+    }
+  }, {
+    offset: '2%'
+  });
+
+  $("#recentposts").waypoint(function(direction) {
+    if (direction === 'up') {
+      $(".navbar .navbar-brand").velocity({
+        color: "#F64747"
+      }, { duration: "5" });
+    }
+  }, {
+    offset: '2%'
+  });
+
   $("#about").waypoint(function(direction) {
     if (direction === 'up') {
       $(".navbar .navbar-brand").velocity({
@@ -88,6 +108,16 @@ $( document ).ready(function() {
     if (direction === 'down') {
       $(".navbar .navbar-brand").velocity({
         color: "#F64747"
+      }, { duration: "5" });
+    }
+  }, {
+    offset: '1%'
+  });
+
+  $("#faq").waypoint(function(direction) {
+    if (direction === 'down') {
+      $(".navbar .navbar-brand").velocity({
+        color: "#FFFFFF"
       }, { duration: "5" });
     }
   }, {

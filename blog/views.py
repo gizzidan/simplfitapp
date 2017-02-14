@@ -4,7 +4,18 @@ from .models import Post, Category
 from .forms import PostForm
 from django.shortcuts import redirect
 from django.db.models import Count
+from django.views.generic.dates import MonthArchiveView, WeekArchiveView
 
+class PostWeekArchiveView(WeekArchiveView):
+    queryset = Post.objects.all()
+    date_field = "published_date"
+    week_format = "%U"
+    allow_future = False
+
+class PostMonthArchiveView(MonthArchiveView):
+    queryset = Post.objects.all()
+    date_field = "published_date"
+    allow_future = False
 
 def getSortedCategories():
     return Category.objects.annotate( count= Count( 'post' ) ).order_by( '-count' )

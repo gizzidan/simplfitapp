@@ -39,13 +39,13 @@
     <ul class="nav navbar-nav navbar-right">
       <div class="menu" id="theMenu">
         <div class="menu-wrap">
-          <h1 class="logo"><a href="base_landing.html#home">SimplFit</a></h1>
+          <h1 class="logo"><a href="{% url 'index' %}">SimplFit</a></h1>
           <i class="ion-android-close menu-close"></i>
           <a href="#home" class="smoothScroll">Home</a>
           <a href="{% url 'post_list' %}" class="smoothScroll">Blog</a>
           <a href="#about" class="smoothScroll">About</a>
-          <a href="#screen" class="smoothScroll">FAQ</a>
-          <a href="#buy" class="smoothScroll">Work With Us</a>
+          <a href="#faq" class="smoothScroll">FAQ</a>
+          <a href="#work" class="smoothScroll">Work With Us</a>
         </div>
       <!-- Menu button -->
         <div id="menuToggle"><i class="ion-grid"></i></div>
@@ -225,6 +225,36 @@
     </div>
   </div>
   </div>
+
+  <div class="container mtb b" id="recentposts">
+    <h1 style="text-align:center" >Recent Posts</h1>
+    <hr class="aligncenter">
+    <div class="card-deck" style="padding-top:30px">
+      {% for post in posts %}
+      <div class="card">
+        <div class="post">
+          {% if post.image %}
+            <img class="img-fluid card-img-top" src="{{ post.image.url }}" alt="Card image cap">
+          {% endif %}
+          <div class="card-block">
+            <h4 class="card-title"><a href="{% url 'post_detail' slug=post.slug pk=post.pk %}">{{ post.title }}</a></h4>
+            {% for category in post.categories.all %}
+              <h3 style="padding-bottom:10px;" class="card-subtitle"><a href="{% url 'category_detail' category.slug %}">{{ category.name }}</a>
+            {% endfor %}</h3>
+              <a href="https://twitter.com/share" id="twitter" class="twitter-share-button" data-size="small" data-via="simplfit" data-hashtags="fitness" data-show-count="true">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+              {% if post.abstract %}
+              <p class="card-text">{{ post.abstract }}</p>
+              {% endif %}
+          </div>
+          <div class="card-footer">
+              <small class="text-muted">{{ post.published_date }} by {{ post.author }}</small>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
   <!-- ********** SHOWCASE ********** -->
   <section id="faq"></section>
   <div id="showcase">
