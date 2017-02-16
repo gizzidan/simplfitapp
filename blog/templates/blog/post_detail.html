@@ -15,8 +15,33 @@
 <title>{{ post.title }}</title>
 {% endblock title %}
 
+{% block nav %}
+<div class="hidden-md-up">
+  <nav class="navbar navbar-fixed-top navbar-default">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav navbar-right">
+        <div class="menu" id="theMenu">
+          <div class="menu-wrap">
+            <h1 class="logo"><a href="{% url 'index' %}">SimplFit</a></h1>
+            <i class="ion-android-close menu-close"></i>
+            {% if categories %}
+              <a href="{% url 'post_list' %}" class="smoothScroll">All</a>
+              {% for category in categories %}
+                <a href="{% url 'category_detail' category.slug %}" class={{"smoothScroll"}}>{{ category.name }}</a>
+              {% endfor %}
+            {% endif %}
+          </div>
+        <!-- Menu button -->
+          <div id="menuToggle"><i class="ion-grid"></i></div>
+        </div>
+        </ul>
+    </div>
+  </nav>
+</div>
+{% endblock nav %}
+
 {% block content %}
-<div class="container-fluid alignleft" id="bloghead">
+<div class="container-fluid alignleft hidden-sm-down" id="bloghead">
   <div class="col-sm-12">
     <div class="row">
       <ul style="list-style:none; padding-bottom:12px;">
@@ -45,11 +70,31 @@
 </div>
 
 <div class="post-detail">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-8 col-xs-offset-2">
+  <div class="container-fluid">
+    <div class="row no-gutters">
+      <div class="col-xs-12 col-md-8 col-md-offset-2">
         <h1>{{ post.title }}</h1>
-        <!-- Go to www.addthis.com/dashboard to customize your tools --> <div class="addthis_inline_share_toolbox"></div>
+        <!-- AddToAny BEGIN -->
+    <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+    <a class="a2a_dd" href="https://www.addtoany.com/share?linkurl=simplfit.com%2Fblog&amp;linkname=SimplFit"></a>
+    <a class="a2a_button_facebook"></a>
+    <a class="a2a_button_twitter"></a>
+    <a class="a2a_button_google_plus"></a>
+    <a class="a2a_button_email"></a>
+    </div>
+    <script>
+    var a2a_config = a2a_config || {};
+    a2a_config.linkname = "SimplFit";
+    a2a_config.linkurl = "simplfit.com/blog";
+    a2a_config.num_services = 4;
+    a2a_config.color_main = "D7E5ED";
+    a2a_config.color_border = "AECADB";
+    a2a_config.color_link_text = "333333";
+    a2a_config.color_link_text_hover = "333333";
+    a2a_config.prioritize = ["evernote", "tumblr", "reddit", "pinterest", "linkedin", "pocket"];
+    </script>
+    <script async src="https://static.addtoany.com/menu/page.js"></script>
+    <!-- AddToAny END -->
         <hr>
         <h5>
         {% for category in post.categories.all %}
@@ -79,6 +124,3 @@
 
 
 {% endblock content %}
-{% block share %}
-<!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58a265d20d4adcf8"></script>
-{% endblock share %}

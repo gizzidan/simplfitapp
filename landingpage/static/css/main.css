@@ -328,7 +328,10 @@ hr {
   -webkit-text-fill-color: transparent;
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;
-  font-size: 52px;
+  font-size: 46px;
+	@media (min-width: 700px) {
+		font-size: 52px;
+	}
 }
 
 #h h3 {

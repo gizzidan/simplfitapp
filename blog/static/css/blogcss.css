@@ -6,6 +6,9 @@
   src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
 }
 
+
+
+
 body{
 
 }
@@ -32,7 +35,7 @@ h2 a {
 h3 {
   font-family: "Lato", sans-serif;
   font-weight:400;
-  font-size:18px;
+  font-size:1.1em;
   letter-spacing: 1.5px;
   color: #333;
 }
@@ -55,10 +58,25 @@ h5 a {
 
 .post {
 }
+
+html {
+  font-size: 16px;
+  @media (min-width: 800px) {
+    font-size: 18px;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 20px;
+  }
+}
+
+
+
+
 .post p {
   font-family: 'San Francisco', sans-serif;
   font-weight: 400;
-  font-size: 17px;
+  font-size: 1em;
   color: #444;
   line-height: 150%;
   letter-spacing: 150%;
@@ -71,14 +89,15 @@ h5 a {
   top: 0;
 }
 .post-detail {
-  padding: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 
 .post-detail h1 {
   font-family: "Roboto", sans-serif;
   font-weight: 700;
-  font-size: 80px;
+  font-size: 5.063em;
   letter-spacing: 2px;
   padding-bottom: 10px;
   color: #F64747;
@@ -87,7 +106,7 @@ h5 a {
 .post-detail h2 {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
-  font-size: 60px;
+  font-size: 3.375em;
   color: #F64747;
 
 }
@@ -95,7 +114,7 @@ h5 a {
 .post-detail h3 {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
-  font-size: 45px;
+  font-size: 2.25em;
   letter-spacing: .5px;
   color: #F64747;
 
@@ -104,7 +123,7 @@ h5 a {
 .post-detail h4 {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
-  font-size: 30px;
+  font-size: 1.5em;
   letter-spacing: .5px;
 
 }
@@ -114,8 +133,6 @@ h5 a {
   color: #1E88E5;
 
 }
-
-
 
 .post-detail p {
   font-family: 'San Francisco', sans-serif;
@@ -136,6 +153,7 @@ h5 a {
   list-style: none;
   padding-top: 35px;
   margin-left: 30px;
+
 }
 
 #bloghead h1 {
