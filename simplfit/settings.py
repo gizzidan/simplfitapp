@@ -38,9 +38,19 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'webpack_loader',
     'rest_framework',
+    'storages',
     'blog',
     'landingpage',
 ]
+
+AWS_QUERYSTRING_AUTH = False
+AWS_ACCESS_KEY_ID = os.environ['AKIAIRR5TIOI6C4V6DXQ']
+AWS_SECRET_ACCESS_KEY = os.environ['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']
+AWS_STORAGE_BUCKET_NAME = os.environ['simplfit-media']
+AWS_S3_HOST = "s3-us-east-2.amazonaws.com"
+AWS_S3_SECURE_URLS = False       # use http instead of https
+MEDIA_URL = 'http://%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
+DEFAULT_FILE_STORAGE = "simplfit.s3utils.MediaS3BotoStorage"
 
 DISQUS_API_KEY = 'mYmkN1p6RZE7WJj2SricEHpYzGFTU7lFgdzzfOknD9RVfeza7cmIu8I9NrlNVDqy'
 DISQUS_WEBSITE_SHORTNAME = 'SimplFit'
@@ -86,7 +96,6 @@ WSGI_APPLICATION = 'simplfit.wsgi.application'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
 STATICFILES_DIRS = (
     #This lets Django's collectstatic store our bundles
     os.path.join(BASE_DIR, 'assets'),
