@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'landingpage',
 ]
 
-i
+
 
 AWS_QUERYSTRING_AUTH = False
 AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
