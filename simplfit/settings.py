@@ -43,14 +43,17 @@ INSTALLED_APPS = [
     'landingpage',
 ]
 
+i
+
 AWS_QUERYSTRING_AUTH = False
-AWS_ACCESS_KEY_ID = os.environ['AKIAJU3SPFURXJREYFSA']
-AWS_SECRET_ACCESS_KEY = os.environ['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']
-AWS_STORAGE_BUCKET_NAME = os.environ['simplfit-files']
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
 AWS_S3_HOST = "s3-us-east-2.amazonaws.com"
 AWS_S3_SECURE_URLS = False       # use http instead of https
 MEDIA_URL = 'http://%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
 DEFAULT_FILE_STORAGE = "storages.backends.s3boto.S3BotoStorage"
+
 
 DISQUS_API_KEY = 'mYmkN1p6RZE7WJj2SricEHpYzGFTU7lFgdzzfOknD9RVfeza7cmIu8I9NrlNVDqy'
 DISQUS_WEBSITE_SHORTNAME = 'SimplFit'
@@ -176,8 +179,6 @@ DATABASES['default'] = dj_database_url.config()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 ALLOWED_HOSTS = ['*']
-
-DEBUG = False
 
 try:
     from .local_settings import *
