@@ -89,6 +89,7 @@ STATICFILES_FINDERS = (
 WSGI_APPLICATION = 'simplfit.wsgi.application'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATICFILES_DIRS = (
     #This lets Django's collectstatic store our bundles
@@ -175,14 +176,3 @@ try:
     from .local_settings import *
 except ImportError:
     pass
-
-if not DEBUG:
-    AWS_QUERYSTRING_AUTH = False
-    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
-    AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
-    AWS_S3_HOST = "s3-us-east-2.amazonaws.com"
-    AWS_S3_SECURE_URLS = False       # use http instead of https
-    S3_URL = 'http://%s.s3.amazonaws.com/' % AWS_STORAGE_BUCKET_NAME
-    MEDIA_URL = S3_URL
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
