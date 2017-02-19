@@ -24,7 +24,7 @@ SECRET_KEY = '@xmp24=)$zo)d#i+*3oxkin(x8j=yvyfccl5pbtu1)20orekzp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = False
+DEBUG = True
 
 
 # Application definition
@@ -176,8 +176,10 @@ try:
 except ImportError:
     pass
 
-if not DEBUG:
-    AWS_QUERYSTRING_AUTH = False
-    AWS_S3_SECURE_URLS = False       # use http instead of https
-    MEDIA_URL = 'http://simplfit-files.s3.amazonaws.com/media/'
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+AWS_STORAGE_BUCKET = os.environ['S3_BUCKET_NAME']
+AWS_QUERYSTRING_AUTH = False
+AWS_S3_SECURE_URLS = False       # use http instead of https
+MEDIA_URL = 'http://%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
