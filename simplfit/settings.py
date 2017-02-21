@@ -184,4 +184,4 @@ AWS_S3_SECURE_URLS = False       # use http instead of https
 AWS_DEFAULT_REGION = 'us-east-2'
 AWS_S3_HOST = "s3.us-east-2.amazonaws.com"  # Change to the media center you chose when creating the bucket
 MEDIA_URL = 'http://%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'simplfit.s3utils.MediaS3BotoStorage'
