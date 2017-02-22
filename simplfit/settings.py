@@ -176,7 +176,10 @@ try:
 except ImportError:
     pass
 
-if DEBUG = False:
+if DEBUG:
+    MEDIA_URL = '/media/'
+    
+else:
     AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
     AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
     AWS_STORAGE_BUCKET_NAME = os.environ['S3_BUCKET_NAME']
@@ -186,5 +189,3 @@ if DEBUG = False:
     AWS_S3_HOST = "s3.us-east-2.amazonaws.com"  # Change to the media center you chose when creating the bucket
     MEDIA_URL = 'http://%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
     DEFAULT_FILE_STORAGE = 'simplfit.s3utils.MediaS3BotoStorage'
-else:
-    MEDIA_URL = '/media/'
