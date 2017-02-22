@@ -89,7 +89,6 @@ STATICFILES_FINDERS = (
 WSGI_APPLICATION = 'simplfit.wsgi.application'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATICFILES_DIRS = (
     #This lets Django's collectstatic store our bundles
@@ -177,7 +176,7 @@ try:
 except ImportError:
     pass
 
-if not DEBUG:
+if DEBUG = False:
     AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
     AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
     AWS_STORAGE_BUCKET_NAME = os.environ['S3_BUCKET_NAME']
@@ -187,3 +186,5 @@ if not DEBUG:
     AWS_S3_HOST = "s3.us-east-2.amazonaws.com"  # Change to the media center you chose when creating the bucket
     MEDIA_URL = 'http://%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
     DEFAULT_FILE_STORAGE = 'simplfit.s3utils.MediaS3BotoStorage'
+else:
+    MEDIA_URL = '/media/'
