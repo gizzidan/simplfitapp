@@ -24,7 +24,7 @@ SECRET_KEY = '@xmp24=)$zo)d#i+*3oxkin(x8j=yvyfccl5pbtu1)20orekzp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = False
+DEBUG = True
 
 
 # Application definition
@@ -89,6 +89,7 @@ STATICFILES_FINDERS = (
 WSGI_APPLICATION = 'simplfit.wsgi.application'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATICFILES_DIRS = (
     #This lets Django's collectstatic store our bundles
@@ -176,12 +177,13 @@ try:
 except ImportError:
     pass
 
-AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
-AWS_STORAGE_BUCKET_NAME = os.environ['S3_BUCKET_NAME']
-AWS_QUERYSTRING_AUTH = False
-AWS_S3_SECURE_URLS = False       # use http instead of https
-AWS_DEFAULT_REGION = 'us-east-2'
-AWS_S3_HOST = "s3.us-east-2.amazonaws.com"  # Change to the media center you chose when creating the bucket
-MEDIA_URL = 'http://%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
-DEFAULT_FILE_STORAGE = 'simplfit.s3utils.MediaS3BotoStorage'
+if not DEBUG:
+    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+    AWS_STORAGE_BUCKET_NAME = os.environ['S3_BUCKET_NAME']
+    AWS_QUERYSTRING_AUTH = False
+    AWS_S3_SECURE_URLS = False       # use http instead of https
+    AWS_DEFAULT_REGION = 'us-east-2'
+    AWS_S3_HOST = "s3.us-east-2.amazonaws.com"  # Change to the media center you chose when creating the bucket
+    MEDIA_URL = 'http://%s.s3.amazonaws.com/media/' % AWS_STORAGE_BUCKET_NAME
+    DEFAULT_FILE_STORAGE = 'simplfit.s3utils.MediaS3BotoStorage'

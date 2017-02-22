@@ -51,12 +51,13 @@ $( document ).ready(function() {
   $("#fact1").velocity({ opacity: 0 });
   $("#fact2").velocity({ opacity: 0 });
   $(".fitimg").velocity({ opacity: 0 });
+;
 
 
-  $(".cta").waypoint(function(direction) {
-    if (direction === 'down') {
+  $("#faq").waypoint(function(direction) {
+    if (direction === 'up') {
       $(".navbar .navbar-brand").velocity({
-        color: "#FFFFFF"
+        color: "#666"
       }, { duration: "5" });
     }
   }, {
@@ -64,55 +65,6 @@ $( document ).ready(function() {
   });
 
 
-  $(".cta").waypoint(function(direction) {
-    if (direction === 'up') {
-      $(".navbar .navbar-brand").velocity({
-        color: "#F64747"
-      }, { duration: "5" });
-    }
-  }, {
-    offset: '1%'
-  });
-
-  $("#recentposts").waypoint(function(direction) {
-    if (direction === 'down') {
-      $(".navbar .navbar-brand").velocity({
-        color: "#F64747"
-      }, { duration: "5" });
-    }
-  }, {
-    offset: '2%'
-  });
-
-  $("#recentposts").waypoint(function(direction) {
-    if (direction === 'up') {
-      $(".navbar .navbar-brand").velocity({
-        color: "#F64747"
-      }, { duration: "5" });
-    }
-  }, {
-    offset: '2%'
-  });
-
-  $("#about").waypoint(function(direction) {
-    if (direction === 'up') {
-      $(".navbar .navbar-brand").velocity({
-        color: "#FFFFFF"
-      }, { duration: "5" });
-    }
-  }, {
-    offset: '1%'
-  });
-
-  $("#about").waypoint(function(direction) {
-    if (direction === 'down') {
-      $(".navbar .navbar-brand").velocity({
-        color: "#F64747"
-      }, { duration: "5" });
-    }
-  }, {
-    offset: '1%'
-  });
 
   $("#faq").waypoint(function(direction) {
     if (direction === 'down') {
@@ -137,22 +89,14 @@ $( document ).ready(function() {
   $("#work").waypoint(function(direction) {
     if (direction === 'down') {
       $(".navbar .navbar-brand").velocity({
-        color: "#F64747"
+        color: "#666"
       }, { duration: "5" });
     }
   }, {
     offset: '1%'
   });
 
-  $("#home").waypoint(function(direction) {
-    if (direction === 'up') {
-      $(".navbar .navbar-brand").velocity({
-        color: "#F64747"
-      }, { duration: "5" });
-    }
-  }, {
-    offset: '75%'
-  });
+
 
   $("#tagline").velocity("fadeIn",
   {delay: 300, duration: 2500 });

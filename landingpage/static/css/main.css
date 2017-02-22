@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Baloo+Thambi|Bungee|Lato:100,300,300i,400,400i,700,700i|Raleway:200,300,400,500,600,700|Roboto:300,300i,400,400i,500,500i,700,700i|Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i|Vollkorn:400,400i,700,700i|Work+Sans:100,200,300,400,500,600,700');
-@import url('https://fonts.googleapis.com/css?family=Bungee+Hairline|Raleway:100,200,300,400|Shadows+Into+Light');
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,300i,400,400i,700,700i|Raleway:100,200,300,400,500,600,700|Roboto:300,300i,400,400i,500,500i,700,700i|Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i|Work+Sans:100,200,300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Bungee+Hairline|Open+Sans:400,600|Montserrat:300,400|Shadows+Into+Light');
 
 
 * {
@@ -111,12 +111,10 @@ hr {
 }
 
 
-
 .navbar .navbar-brand {
-  font-family: "Shadows Into Light", cursive;
-  font-size: 33px;
-  color: #F64747;
-  letter-spacing: 0.75px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 30px;
+  color: #666;
   text-decoration: none;
   text-shadow: none;
 }
