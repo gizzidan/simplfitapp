@@ -303,7 +303,7 @@ hr {
 #h {
 	padding-bottom: 30px;
 	background:
-    url('../img/white.jpg') no-repeat center center fixed;
+    url('/static/img/white.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
