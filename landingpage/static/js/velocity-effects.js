@@ -51,6 +51,10 @@ $( document ).ready(function() {
   $("#fact1").velocity({ opacity: 0 });
   $("#fact2").velocity({ opacity: 0 });
   $(".fitimg").velocity({ opacity: 0 });
+  $("#features").velocity({ opacity: 0 });
+  $("#faq").velocity({ opacity: 0 });
+  $("#showcase").velocity({ opacity: 0 });
+
 ;
 
 
@@ -66,35 +70,19 @@ $( document ).ready(function() {
 
 
 
-  $("#faq").waypoint(function(direction) {
-    if (direction === 'down') {
-      $(".navbar .navbar-brand").velocity({
-        color: "#FFFFFF"
-      }, { duration: "5" });
-    }
-  }, {
-    offset: '1%'
-  });
+  $("#showcase").waypoint(function() {
+    $("#showcase").velocity("fadeIn",
+    {duration: 2500 });
+    this.destroy()
 
-  $("#work").waypoint(function(direction) {
-    if (direction === 'up') {
-      $(".navbar .navbar-brand").velocity({
-        color: "#FFFFFF"
-      }, { duration: "5" });
-    }
-  }, {
-    offset: '1%'
-  });
+  }, { offset: '70%'});
 
-  $("#work").waypoint(function(direction) {
-    if (direction === 'down') {
-      $(".navbar .navbar-brand").velocity({
-        color: "#666"
-      }, { duration: "5" });
-    }
-  }, {
-    offset: '1%'
-  });
+  $("#features").waypoint(function() {
+    $("#features").velocity("fadeIn",
+    {duration: 2500 });
+    this.destroy()
+
+  }, { offset: '70%'});
 
 
 
@@ -130,7 +118,7 @@ $( document ).ready(function() {
 
   $("#features").waypoint(function() {
     $(".fitimg").velocity("transition.slideUpIn",
-    { duration:2000, stagger:800, drag: true });
+    { delay:500, duration:2000, stagger:800, drag: true });
     this.destroy()
   }, { offset: '25%'});
 

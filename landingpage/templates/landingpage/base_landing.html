@@ -6,8 +6,6 @@
 {% endblock %}
 
 {% block scripts %}
-<script type="text/javascript" src="{% static 'js/particles.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/app.js' %}"></script>
 {% endblock scripts %}
 
 {% block styles %}
@@ -17,8 +15,8 @@
                             border: 2px solid #F64747;}
 
   #mc-embedded-subscribe:hover {
-                            border: 2px solid #DD2476;
-                            background-color: #DD2476;
+                            border: 2px solid #F64747;
+                            background-color: #F64747;
                             color: #EDF2F4;
                   }
 
@@ -34,7 +32,7 @@
 <nav class="navbar navbar-fixed-top navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">SimplFit</a>
+      <a class="navbar-brand" href="#">SF</a>
     </div>
     <ul class="nav navbar-nav navbar-right">
       <div class="menu" id="theMenu">
@@ -64,8 +62,8 @@
   <div id="h" class="particles-c">
       <div class="container-fluid">
         <div class="row centered">
-          <div class="col-md-10 col-md-offset-1">
-            <h2 id="tagline" class="initial-hide">WE CONNECT PEOPLE WITH FITNESS PROFESSIONALS</h2>
+          <div class="col-md-10 col-md-offset-1"><h2>Welcome to SimplFit.</h2>
+            <h3>A Marketplace for Online Health & Fitness Training</h3>
 
           </div>
 
@@ -96,7 +94,7 @@
               </div>
             </div>
             <div class="container form-inline">
-              <div class="col-md-8 col-md-offset-2">
+              <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-4 col-lg-offset-4">
                 <div class="row">
                     <a style="z-index:300" class="typeform-share link" href="https://gizzidan.typeform.com/to/n3ScNz" data-mode="1" target="_blank"><button class="btn hvr-icon-forward btn-block btn-lg btn-android">Apply as a Fitness Professional</button></a>
               <script>(function(){var qs,js,q,s,d=document,gi=d.getElementById,ce=d.createElement,gt=d.getElementsByTagName,id='typef_orm',b='https://s3-eu-west-1.amazonaws.com/share.typeform.com/';if(!gi.call(d,id)){js=ce.call(d,'script');js.id=id;js.src=b+'share.js';q=gt.call(d,'script')[0];q.parentNode.insertBefore(js,q)}})()</script>
@@ -127,7 +125,6 @@
   <!-- ********** ICONS ********** -->
   <section id="about"></section>
   <div id="g">
-
   <div class="container">
     <div class="row mtb centered">
       <div class="col-md-3 info1">
@@ -165,8 +162,9 @@
 
 
   <!-- ********** PHONE & FEATURES ********** -->
-  <div class="container" id="features">
-  <div class="row mtb2">
+<div id="features">
+  <div class="container-fluid">
+  <div class="row ptb centered">
     <h1 class="centered" style="padding-bottom:15px">WHY SIMPLFIT?</h1>
     <div class="col-md-4">
       <div class="centered f-t2">
@@ -218,6 +216,8 @@
 
   </div><!--/row -->
   </div><!--/container -->
+</div>
+
   <div class="cta">
   <div class="container">
     <div class="row">
@@ -226,7 +226,7 @@
   </div>
   </div>
 
-  <div class="container mtb b" id="recentposts">
+  <div class="container-fluid ptb b" id="recentposts">
     <h1 style="text-align:center" >Recent Posts</h1>
     <hr class="aligncenter">
     <div class="card-deck" style="padding-top:30px">
@@ -313,9 +313,9 @@
 
   <!-- ********** Hire ********** -->
   <section id="work"></section>
-  <div id="g">
-  <div class="container">
-    <div class="row mtb">
+  <div class="w">
+  <div class="container-fluid">
+    <div class="row ptb">
       <h1 class="centered">Work With Us</h1>
       <hr class="aligncenter">
       <p class="centered">We are currently looking for awesome people to work with (especially back-end developers).</p>
@@ -328,9 +328,9 @@
   </div><!--/G -->
 
   <!-- ********** SUBSCRIBE ********** -->
-  <div id="">
-  <div class="container">
-    <div class="row mtb">
+  <div id="sub">
+  <div class="container-fluid">
+    <div class="row ptb">
       <h1 class="centered">Subscribe To Our Newsletter</h1>
       <hr class="aligncenter mb">
       <!-- Begin MailChimp Signup Form -->
@@ -348,7 +348,7 @@
                       </div>
                        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                     <div style="position: absolute; left: -5000px;"><input type="text" name="b_1620f54b963340bdb69908dbb_4bdb0a57f3" tabindex="-1" value=""></div>
-                    <div class="form-group"><input type="submit" value="Yes, Please" name="subscribe" id="mc-embedded-subscribe" class="btn btn-submit subscribe-submit"></div>
+                    <div class="form-group"><input type="submit" value="Yes, Please" name="subscribe" id="mc-embedded-subscribe" class="hvr-pulse btn btn-submit subscribe-submit"></div>
                     </div>
                    <div id="mce-responses" class="clear">
                         <div class="response" id="mce-error-response" style="display:none"></div>
