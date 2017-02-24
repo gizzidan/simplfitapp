@@ -54,8 +54,7 @@ $( document ).ready(function() {
   $("#features").velocity({ opacity: 0 });
   $("#faq").velocity({ opacity: 0 });
   $("#showcase").velocity({ opacity: 0 });
-
-
+  $(".b").velocity({ opacity: 0 });
 ;
 
 
@@ -95,6 +94,12 @@ $( document ).ready(function() {
   $("#mc_embed_signup").velocity("callout.swing",
   {delay: 5000, duration: 700 });
 
+  $(".b").waypoint(function() {
+    $(".b").velocity("transition.slideLeftIn",
+    {duration: 4000, drag: true });
+    this.destroy()
+
+  }, { offset: '60%'});
 
   $("#fact1").waypoint(function() {
     $("#fact1").velocity("transition.slideLeftIn",

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:100,300,300i,400,400i,700,700i|Raleway:100,200,300,400,500,600,700|Roboto:300,300i,400,400i,500,500i,700,700i|Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i|Work+Sans:100,200,300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,300i,400,400i,700,700i|Open+Sans|Raleway:100,200,300,400,500,600,700|Roboto:300,300i,400,400i,500,500i,700,700i|Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i|Work+Sans:100,200,300,400,500,600,700');
 @import url('https://fonts.googleapis.com/css?family=Bungee+Hairline|Open+Sans:400,600|Montserrat:300,400|Shadows+Into+Light');
 
 
@@ -22,9 +22,9 @@ body.fade-out {
 p {
 	padding: 0;
 	margin-bottom: 12px;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 	font-weight: 300;
-	font-size: 19px;
+	font-size: 18px;
 	line-height: 28px;
 	color: #6f7e82;
 	margin-top: 10px;
@@ -544,7 +544,11 @@ hr {
 }
 
 #features {
-	background-color: #e8eef2;
+	background: #fbf7f4; /* Old browsers */
+	background: -moz-linear-gradient(to right, #fbf7f4 0%, #e8eef2 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(to right, #fbf7f4 0%,#e8eef2 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, #fbf7f4 0%,#e8eef2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+
 }
 
 #features h1 {
@@ -557,14 +561,14 @@ hr {
 }
 
 .features:hover {
-	background: #eeeeee;
+	background: #fbf7f4;
 	cursor: pointer;
 }
 
 .features p {
 	font-size: 17px;
 	line-height: 26px;
-	color: #f97575;
+	color: #f56666;
 }
 
 .features h3 {
@@ -576,14 +580,14 @@ hr {
 }
 
 .features2:hover {
-	background: #f2f2f2;
+	background: #f2f8fb;
 	cursor: pointer;
 }
 
 .features2 p {
 	font-size: 17px;
 	line-height: 26px;
-	color: #a075a4;
+	color: #9e6da3;
 }
 
 .features2 h3 {
@@ -604,7 +608,7 @@ hr {
 
 /* Showcase Conf */
 #showcase {
-	background-color: #eeeeee;
+	background-color: #f4f4f4;
 	background-attachment: relative;
 	background-position: center center;
 	min-height: 800px;
@@ -629,23 +633,23 @@ hr {
 }
 
 #showcase h1 {
-	color: #f76060;
+	color: #957c8b;
 }
 
 #showcase h4 {
-	color: #f76060;
+	color: #957c8b;
 	font-weight: bold;
   font-size: 20px;
   letter-spacing: 1px;
 }
 
 #showcase p {
-	color: #f67a7a;
+	color: #957c8b;
   font-size: 18px;
 }
 
 #showcase hr {
-	border: 1px solid #f76060;
+	border: 1px solid #957c8b;
 	width: 120px;
 }
 
