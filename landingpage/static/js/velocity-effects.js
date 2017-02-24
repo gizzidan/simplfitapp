@@ -55,6 +55,7 @@ $( document ).ready(function() {
   $("#faq").velocity({ opacity: 0 });
   $("#showcase").velocity({ opacity: 0 });
 
+
 ;
 
 
@@ -72,25 +73,29 @@ $( document ).ready(function() {
 
   $("#showcase").waypoint(function() {
     $("#showcase").velocity("fadeIn",
-    {duration: 2500 });
+    {duration: 2000 });
     this.destroy()
 
   }, { offset: '70%'});
 
   $("#features").waypoint(function() {
     $("#features").velocity("fadeIn",
-    {duration: 2500 });
+    {duration: 2000 });
     this.destroy()
 
   }, { offset: '70%'});
 
+  var myBackgroundImage = new Image();
+  myBackgroundImage.src = "static/img/white.jpg";
+
+  myBackgroundImage.onload = function () {
+    $('body').removeClass('fade-out');
+  };
 
 
-  $("#tagline").velocity("fadeIn",
-  {delay: 300, duration: 2500 });
 
   $("#tagline").velocity("callout.pulse",
-  {duration: 1500 });
+  {delay:2500, duration: 1500 });
 
   $("#mc_embed_signup").velocity("callout.swing",
   {delay: 5000, duration: 700 });
