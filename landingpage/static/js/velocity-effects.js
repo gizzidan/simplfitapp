@@ -85,12 +85,7 @@ $( document ).ready(function() {
 
   }, { offset: '70%'});
 
-  var myBackgroundImage = new Image();
-  myBackgroundImage.src = "static/img/white.jpg";
 
-  myBackgroundImage.onload = function () {
-    $('body').removeClass('fade-out');
-  };
 
 
 

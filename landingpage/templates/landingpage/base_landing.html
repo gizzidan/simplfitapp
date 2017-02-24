@@ -8,6 +8,20 @@
 {% block scripts %}
 {% endblock scripts %}
 
+{% block fade %}
+<script type="text/javascript">
+  document.body.className += ' fade-out';
+</script>
+<script>
+  var myBackgroundImage = new Image();
+  myBackgroundImage.src = "static/img/white.jpg";
+
+  myBackgroundImage.onload = function () {
+    $('body').removeClass('fade-out');
+  };
+</script>
+{% endblock fade %}
+
 {% block styles %}
 <style type="text/css">
   #mc_embed_signup{background:none; clear:left;  }
